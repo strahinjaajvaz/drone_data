@@ -23,7 +23,7 @@ function Plane({ droneData }) {
         grid = [<div className="flex justify-center" style={{ width: width * 32 }} >{rowData}</div>, ...grid]
     }
 
-    return <div className="overflow-scroll"><div >{grid}</div></div>
+    return <div className="mt-16 overflow-scroll max-h-80vh"><div className="mx-auto w-mContent">{grid}</div></div>
 }
 
 export default Plane
