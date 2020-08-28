@@ -10,12 +10,17 @@ function Plane({ droneData }) {
 
         for (let j = minX; j <= maxX; j++) {
             let valueAtPoint = droneCoordinates[`${j},${i}`]
+            if (x === j && y === i) debugger
             if (valueAtPoint) {
+                console.log("pic", x, y)
                 rowData.push(<Tile visited={droneCoordinates[`${j},${i}`]} current={x === j && y === i} />)
             }
             else if (valueAtPoint === 0) {
+                console.log("visi", x, y)
+
                 rowData.push(<Tile visited={0} current={x === j && y === i} />)
             } else {
+
                 rowData.push(<Tile />)
             }
         }

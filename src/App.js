@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Header from './components/Header'
 import Wrapper from './components/Wrapper';
 import Plane from './components/Plane'
-import Tile from './components/Tile'
 
 import { parseInput } from './utils/parseInput'
 
@@ -22,7 +21,7 @@ function App() {
       setTimeout(() => {
         index.current += 1;
         setDroneData(parseInput(data.data.charAt(index.current), droneData))
-      }, 1000)
+      }, 0)
     }
   }, [droneData, setDroneData])
 
