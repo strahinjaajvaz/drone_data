@@ -18,20 +18,26 @@ function Plane({ droneData, showMarker }) {
 
         for (let j = minX; j <= maxX; j++) {
             let valueAtPoint = droneCoordinates[`${j},${i}`]
-            if (valueAtPoint) {
-                rowData.push(<Tile visited={droneCoordinates[`${j},${i}`]} current={x === j && y === i} {...{ ref }} {...{ showMarker }} />)
-            }
-            else if (valueAtPoint === 0) {
-                rowData.push(<Tile visited={0} current={x === j && y === i} {...{ ref }} {...{ showMarker }} />)
-            } else {
-                rowData.push(<Tile />)
-            }
+            let xIndex, yIndex;
+            if (minY === i)
+                xIndex = "" + j
+            if (minX === j)
+                yIndex = "" + i
+
+            rowData.push(<Tile
+                key={`${j},${i}`}
+                {...{ ref }}
+                visited={valueAtPoint}
+                current={x === j && y === i}
+                {...{ showMarker, xIndex, yIndex }}
+            />)
         }
         let width = (Math.abs(minX) + maxX + 1)
+
         grid = [<div className="flex justify-center" style={{ width: width * 32 }} >{rowData}</div>, ...grid]
     }
 
-    return <div className="mt-16"><div className="mx-auto w-mContent">{grid}</div></div>
+    return <div className="mt-16 mx-auto h-full w-mContent">{grid}</div>
 }
 
 export default Plane
