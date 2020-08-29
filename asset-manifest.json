@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/drone_data/static/css/main.af478c1f.chunk.css",
+    "main.js": "/drone_data/static/js/main.31152ebb.chunk.js",
+    "main.js.map": "/drone_data/static/js/main.31152ebb.chunk.js.map",
+    "runtime-main.js": "/drone_data/static/js/runtime-main.510f6005.js",
+    "runtime-main.js.map": "/drone_data/static/js/runtime-main.510f6005.js.map",
+    "static/js/2.6f330893.chunk.js": "/drone_data/static/js/2.6f330893.chunk.js",
+    "static/js/2.6f330893.chunk.js.map": "/drone_data/static/js/2.6f330893.chunk.js.map",
+    "index.html": "/drone_data/index.html",
+    "precache-manifest.54211d117571cce0e0f9d4e98dba92ce.js": "/drone_data/precache-manifest.54211d117571cce0e0f9d4e98dba92ce.js",
+    "service-worker.js": "/drone_data/service-worker.js",
+    "static/css/main.af478c1f.chunk.css.map": "/drone_data/static/css/main.af478c1f.chunk.css.map",
+    "static/js/2.6f330893.chunk.js.LICENSE.txt": "/drone_data/static/js/2.6f330893.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.510f6005.js",
+    "static/js/2.6f330893.chunk.js",
+    "static/css/main.af478c1f.chunk.css",
+    "static/js/main.31152ebb.chunk.js"
+  ]
+}
