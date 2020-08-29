@@ -55,6 +55,7 @@ function App() {
 
   function onClick(value) {
     setRunType(value)
+    setDroneData(dataObj)
     index.current = 0;
   }
 

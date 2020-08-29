@@ -4,6 +4,7 @@
 This is a drone flight simulator where the input data give is a representation of the movements the drone takes. The characters `^v<>` are for up, down, left and right respectively and `x` means that a  photo  was taken on that square.
 
 # Deployed Link
+https://strahinjaajvaz.github.io/drone_data/
 
 # Design decisions
 This was just a data processing challenge. We build an object to contain all the input drone data and then build a  plane where we display it.
