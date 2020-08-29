@@ -2,12 +2,23 @@ import React, { useEffect, useState, useRef } from 'react';
 
 import Header from './components/Header'
 import Plane from './components/Plane'
+import InfoPanel from './components/InfoPanel'
 
 import { parseInput } from './utils/parseInput'
 
 import data from './data.json'
 
-let dataObj = { minX: 0, minY: 0, maxX: 0, maxY: 0, droneCoordinates: {}, x: 0, y: 0 }
+let dataObj = {
+  minX: 0,
+  minY: 0,
+  maxX: 0,
+  maxY: 0,
+  droneCoordinates: {},
+  x: 0,
+  y: 0,
+  photoCount: 0,
+  locationsWithPhoto: 0,
+}
 
 const runTypes = ["draw", "simulate"]
 
@@ -22,7 +33,7 @@ function App() {
       setTimeout(() => {
         index.current += 1;
         setDroneData(parseInput(data.data.charAt(index.current), droneData))
-      }, 250)
+      }, 1000)
     } else if (runType === runTypes[0] && !drawRef.current) {
       drawRef.current = true;
       let flightPath = null
@@ -33,10 +44,19 @@ function App() {
     }
   }, [droneData, setDroneData, runType])
 
+  let uniqueLocations = Object.keys(droneData.droneCoordinates).length
+  let photoCount = droneData.photoCount;
+  let locationsPhotographed =
+    Object.values(droneData.droneCoordinates).reduce((acc, cur) => {
+      if (cur)
+        acc += 1;
+      return acc
+    }, 0)
+
   return (
     <>
-      <Header {...{ setRunType }} />
-      {runType && <Plane {...{ droneData }} showMarker={runTypes[1] === runType} />}
+      <Header {...{ setRunType, uniqueLocations, photoCount, locationsPhotographed }} />
+      {runType ? <Plane {...{ droneData, runType }} showMarker={runTypes[1] === runType} /> : <InfoPanel />}
     </ >
   );
 }

@@ -44,6 +44,7 @@ export function parseInput(char, dataObj) {
                 break
             }
             case "x": {
+                draftObj.photoCount += 1;
                 if (!draftObj.droneCoordinates[`${draftObj.x},${draftObj.y}`]) {
                     draftObj.droneCoordinates[`${draftObj.x},${draftObj.y}`] = 1
                 } else {
@@ -51,7 +52,6 @@ export function parseInput(char, dataObj) {
                 }
                 break
             }
-            default: { }
         }
     })
 

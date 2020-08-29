@@ -7,7 +7,7 @@ function Plane({ droneData, showMarker }) {
 
     useEffect(() => {
         if (ref.current) {
-            ref.current.scrollIntoView()
+            ref.current.scrollIntoView({ behaviour: "smooth" })
         }
     }, [droneData])
 
@@ -34,10 +34,10 @@ function Plane({ droneData, showMarker }) {
         }
         let width = (Math.abs(minX) + maxX + 1)
 
-        grid = [<div className="flex justify-center" style={{ width: width * 32 }} >{rowData}</div>, ...grid]
+        grid = [<div className="flex justify-center" key={i} style={{ width: width * 32 }} >{rowData}</div>, ...grid]
     }
 
-    return <div className="mt-16 mx-auto h-full w-mContent">{grid}</div>
+    return <div className="mt-4 p-6 mx-auto h-full w-mContent">{grid}</div>
 }
 
 export default Plane
