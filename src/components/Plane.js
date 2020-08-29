@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Tile from './Tile'
 
 function Plane({ droneData }) {
     const { minX, minY, maxX, maxY, droneCoordinates, x, y } = droneData
+    const ref = useRef()
+
+    useEffect(() => {
+        if (ref.current) {
+            ref.current.scrollIntoView()
+        }
+    }, [droneData])
+
     let grid = []
 
     for (let i = minY; i <= maxY; i++) {
@@ -11,10 +19,10 @@ function Plane({ droneData }) {
         for (let j = minX; j <= maxX; j++) {
             let valueAtPoint = droneCoordinates[`${j},${i}`]
             if (valueAtPoint) {
-                rowData.push(<Tile visited={droneCoordinates[`${j},${i}`]} current={x === j && y === i} />)
+                rowData.push(<Tile visited={droneCoordinates[`${j},${i}`]} current={x === j && y === i} {...{ ref }} />)
             }
             else if (valueAtPoint === 0) {
-                rowData.push(<Tile visited={0} current={x === j && y === i} />)
+                rowData.push(<Tile visited={0} current={x === j && y === i} {...{ ref }} />)
             } else {
                 rowData.push(<Tile />)
             }
