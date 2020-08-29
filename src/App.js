@@ -33,7 +33,7 @@ function App() {
       setTimeout(() => {
         index.current += 1;
         setDroneData(parseInput(data.data.charAt(index.current), droneData))
-      }, 1000)
+      }, 250)
     } else if (runType === runTypes[0] && !drawRef.current) {
       drawRef.current = true;
       let flightPath = null
@@ -53,9 +53,14 @@ function App() {
       return acc
     }, 0)
 
+  function onClick(value) {
+    setRunType(value)
+    index.current = 0;
+  }
+
   return (
     <>
-      <Header {...{ setRunType, uniqueLocations, photoCount, locationsPhotographed }} />
+      <Header {...{ onClick, uniqueLocations, photoCount, locationsPhotographed }} />
       {runType ? <Plane {...{ droneData, runType }} showMarker={runTypes[1] === runType} /> : <InfoPanel />}
     </ >
   );

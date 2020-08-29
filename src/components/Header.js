@@ -8,7 +8,7 @@ function DroneInfo({ text, value }) {
 }
 
 function Header({
-  setRunType,
+  onClick,
   uniqueLocations = 0,
   locationsPhotographed = 0,
   photoCount = 0,
@@ -44,7 +44,7 @@ function Header({
           <label className="ml-2" htmlFor="simulate">Simulate</label>
           <button
             className="bg-white px-4 rounded-lg ml-4"
-            onClick={() => setRunType(selected)}
+            onClick={() => onClick(selected)}
           >
             Start
           </button>
